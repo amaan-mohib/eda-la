@@ -4,6 +4,12 @@ output: html_document
 date: "`r Sys.Date()`"
 ---
 
+Submitted By-
+Aditya Nair (1NT19IS006)
+Amaan Mohib (1NT19IS012)
+
+### [GitHub Repo](https://github.com/amaan-mohib/eda-la1)
+
 ### 1. Search command: Gives a list of packages loaded
 ```{r}
 search()
@@ -157,4 +163,237 @@ rank(dataset$Number.of.child.victims,na.last = TRUE)
 ### 30. Dimension names to look at the rows and columns at the same time
 ```{r}
 dimnames(dataset)
+```
+###31.
+
+```{r}
+predictor=c(rep('open',5),rep('closed',4))
+```
+### 32.
+```{r}
+length(dataset$Number.of.male.victims.adult.)
+```
+### 33
+```{r}
+xyz=with(dataset,order(dataset$City,dataset$Title))
+
+xyz
+```
+### 34
+```{r}
+dataset.mat=as.matrix(dataset)
+
+dataset.mat
+```
+### 35 -converted from data frame to list
+```{r}
+frame.list=as.list(dataset)
+
+frame.list
+```
+###36 Standard Deviation 
+```{r}
+sd(dataset$City)
+```
+### 37 Standard Deviation w/o na
+```{r}
+sd(dataset$City,na.rm = TRUE)
+```
+### 38 na.omit - used to strip out NA items
+```{r}
+length(na.omit(dataset$City))
+```
+### 39 - Gives Log 
+```{r}
+log(dataset$Number.of.male.victims.adult.)
+```
+### 40 Rotates Data Frame
+```{r}
+t(dataset)
+```
+### 41
+```{r}
+# rowMeans(dataset$Number.of.male.victims.adult.,dims=1)
+```
+### 42
+```{r}
+margin.table(array(dataset$Number.of.child.victims))
+```
+### 43
+```{r}
+prop.table(dataset$Kidnnaping..Number.of.child.victims)
+```
+### 44. Initializing libraries
+```{r}
+library(gcookbook)
+```
+```{r}
+library(dplyr)
+```
+```{r}
+installed.packages()
+```
+### 45. Rename
+```{r}
+dataset %>% rename(Reason=Murder.Happened.with.reason..1.Property.Land.Disputes..2.Family.Dispute.3.Petty.Quarrels..4.Money.Disputes...5.Personal.Vendetta...6.Love.Affairs...7.Casteism.8..Unknown.other)
+```
+### 46. 
+```{r}
+prop.table(dataset$Number.of.female.victims.adult.)
+```
+### 47.
+```{r}
+dataset %>% rename(Reason=Murder.Happened.with.reason..1.Property.Land.Disputes..2.Family.Dispute.3.Petty.Quarrels..4.Money.Disputes...5.Personal.Vendetta...6.Love.Affairs...7.Casteism.8..Unknown.other, Act=Crime.Against.Women...Combined....1..Murder.with.Rape..2..Dowry.Deaths.Sec..3048..3..Suicide.sec.305.306..4..Kidnapping.All..5..Acid.Attack.Sec..326A.IPC..6..Cruelty.by.Husband.in.laws..Sec.498.A.IPC..7..Rape.only.Sec..376.or.511.IPC..8..Assault.on.Women.with.Intent.to.Outrage.her.Modesty..Sec..354.IPC..9..Cyber.Crimes.against.Women.10..Protection.of.Children.from.Sexual.Offences.Act)
+```
+### 48. New column
+```{r}
+dataset %>% mutate(newcol=NA)
+```
+### 49
+```{r}
+dataset %>% mutate(newcol=NA,ncol=6)
+```
+### 50
+```{r}
+dataset %>% filter(City=="Lucknow")
+```
+### 51
+```{r}
+dataset %>% filter(City=="Kanpur" & Number.of.child.victims>1 & Number.of.female.victims.adult.>1)
+```
+### 52. Creating tables
+```{r}
+table(dataset$City)
+```
+### 53. 
+```{r}
+table(dataset$Number.of.male.victims.adult.)
+```
+### 54
+```{r}
+t.test(dataset$Number.of.child.victims,dataset$Number.of.male.victims.adult.)
+```
+### 55
+```{r}
+cor(dataset$Number.of.child.victims,dataset$Number.of.male.victims.adult.)
+```
+### 56
+```{r}
+t.test(dataset$Number.of.adult.victims,dataset$Number.of.male.victims.adult.,paired = TRUE)
+```
+### 57
+```{r}
+IQR(dataset$Number.of.male.victims.adult.,na.rm=TRUE)
+```
+### 58
+```{r}
+sapply(dataset, class)
+```
+### 59
+```{r}
+hist(dataset$Number.of.male.victims.adult.)
+```
+### 60
+```{r}
+boxplot(dataset$Number.of.child.victims)
+```
+### 61
+```{r}
+hist(dataset$Kidnnaping..Number.of.child.victims)
+```
+### 62
+```{r}
+boxplot(dataset$Number.of.female.victims.adult.)
+```
+### 63
+```{r}
+stem(dataset$Number.of.child.victims)
+```
+### 64
+```{r}
+#plot(dataset$Number.of.child.victims-dataset$Kidnnaping..Number.of.child.victims)
+```
+```{r}
+cat("Hello world")
+```
+
+```{r}
+seq(5)
+```
+```{r}
+seq(2, 5, 0.5)
+```
+```{r}
+seq(2,5, length.out = 10)
+```
+```{r}
+rep(1:5, 2)
+```
+  
+```{r}
+rep(1:5, c(1,1,1,2,2))
+```
+```{r}
+Sys.Date()
+```
+
+```{r}
+Sys.time()
+```
+
+```{r}
+x <- 12.3
+y <- 12L
+typeof(x)
+typeof(y)
+```
+
+```{r}
+subset(dataset, select = c("City", "Title"))
+```
+```{r}
+P <- c(rep('A' , 3) , rep('B' , 10) , rep('C' , 7) )
+t <- table(P) 
+pie(t)
+```
+```{r}
+plot(x = cars$speed, y = cars$dist, pch = 1, col = 1,
+ main = "Distance vs Speed of Cars",
+ xlab = "Speed", ylab = "Distance")
+```
+
+```{r}
+with(cars, plot(dist~speed, pch = 2, col = 3,
+ main = "Distance to stop vs Speed of Cars",
+ xlab = "Speed", ylab = "Distance"))
+```
+
+```{r}
+help()
+```
+
+```{r}
+getwd
+```
+
+```{r}
+dir()
+```
+```{r}
+log(x)
+```
+
+```{r}
+rm(x)
+```
+
+```{r}
+ceiling(1.6) 
+```
+```{r}
+floor(1.8)
+```
+
+```{r}
+round(1.2345,2)
 ```
