@@ -4,26 +4,157 @@ output: html_document
 date: "`r Sys.Date()`"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+### 1. Search command: Gives a list of packages loaded
+```{r}
+search()
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+### 2. Loading the data set
+```{r}
+dataset <- read.csv("UP-Crime-Data-Year-2019.csv")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+### 3. List command
+```{r}
+ls()
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Details of the data set
+
+#### 4. Summary of the data set
+```{r}
+summary(dataset)
+```
+
+#### 5. Head
+
+```{r}
+head(dataset)
+```
+
+#### 6. Tail
+```{r}
+tail(dataset)
+```
+
+#### 7. Head of first 5
+```{r}
+head(dataset,5)
+```
+
+#### 8. Tail of 5
+```{r}
+tail(dataset,5)
+```
+
+#### 9. Structure of data set
+```{r}
+str(dataset)
+```
+
+#### 10. Get the names of the object
+```{r}
+names(dataset)
+```
+
+#### 11. Names of the columns
+```{r}
+colnames(dataset)
+```
+
+#### 12. Names of the rows
+```{r}
+rownames(dataset)
+```
+
+#### 13. Class of the dataset
+```{r}
+class(dataset)
+```
+
+### 14. Set of the dataset
+```{r}
+x <- data.frame(dataset$City, dataset$Number.of.adult.victims)
+
+x
+```
+
+### 15. Sum of NA values
+```{r}
+colSums(is.na(dataset))
+```
+
+### 16. Maximum of number of adult victims with NA values
+```{r}
+max(dataset$Number.of.male.victims.adult.)
+```
+
+### 17. Maximum of number of adult victims
+```{r}
+max(dataset$Number.of.male.victims.adult.,na.rm = TRUE)
+```
+
+### 18. Minimum of number of adult victims with NA values
+```{r}
+min(dataset$Number.of.male.victims.adult.)
+```
+
+### 19. Minimum of number of adult victims
+```{r}
+min(dataset$Number.of.male.victims.adult.,na.rm = TRUE)
+```
+
+### 20. Median of number of adult victims with NA values
+```{r}
+median(dataset$Number.of.male.victims.adult.)
+```
+
+### 21. Median of number of adult victims
+```{r}
+median(dataset$Number.of.male.victims.adult.,na.rm = TRUE)
+```
+
+### 22. Mode of number of adult victims with NA values
+```{r}
+mode(dataset$Number.of.male.victims.adult.)
+```
+
+### 23. Mode of number of adult victims
+```{r}
+mode(dataset$Number.of.male.victims.adult.)
+```
+
+### 24. Standard deviation of number of adult victims with NA values
+```{r}
+sd(dataset$Number.of.male.victims.adult.)
+```
+
+### 25. Mode of number of adult victims
+```{r}
+sd(dataset$Number.of.male.victims.adult.,na.rm = TRUE)
+```
+
+### 26. Sorted Number of male victims
+```{r}
+sort(dataset$Number.of.male.victims.adult.)
+```
+
+### 27. Sorted first row
+```{r}
+sort(dataset[1,])
+```
+
+### 28. Order
+```{r}
+order(dataset$Number.of.child.victims,na.last = TRUE)
+```
+
+### 29. Rank
+```{r}
+rank(dataset$Number.of.child.victims,na.last = TRUE)
+```
+
+### 30. Dimension names to look at the rows and columns at the same time
+```{r}
+dimnames(dataset)
+```
