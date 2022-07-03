@@ -1,0 +1,166 @@
+---
+title: "EDA la-2"
+date: '2022-07-03'
+output: html_document
+---
+
+Submitted By-
+Aditya Nair (1NT19IS006) 
+Amaan Mohib (1NT19IS012)
+
+### [GitHub Repo](https://github.com/amaan-mohib/eda-la1)
+
+###  Loading the data set
+```{r}
+dataset <- read.csv("UP-Crime-Data-Year-2019.csv")
+```
+
+# creating a scatter plot
+```{r}
+library(ggplot2)
+
+ggplot(dataset, aes(x = City, y = dataset$Number.of.male.victims.adult.)) +
+ geom_point()
+
+```
+
+# creating a line graph
+```{r}
+ggplot(dataset, aes(x = City, y = dataset$Number.of.male.victims.adult.)) +
+ geom_line()
+```
+
+# Creating a Bar Graph
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+ geom_col()
+```
+
+# creating a histogram
+```{r}
+ggplot(dataset, aes( x = Number.of.male.victims.adult.)) +
+  geom_histogram(binwidth = 4)
+```
+
+# creating a box plot
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+  geom_boxplot()
+```
+
+# grouping graph together
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult., fill = City)) +
+ geom_col(position = "dodge")
+```
+
+# making bargraph of counts
+```{r}
+ggplot(dataset, aes(x = dataset$Number.of.male.victims.adult.)) +
+ geom_bar()
+```
+
+# adjusting a bar width and space
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+ geom_col(width = 0.5)
+```
+# stacked bar graph
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+ geom_col()
+```
+
+# Cleveland Dot plot
+```{r}
+ggplot(dataset, aes(y = dataset$City, x = dataset$Number.of.male.victims.adult.)) +
+ geom_point()
+```
+
+# Line graph
+```{r}
+ggplot(dataset, aes(y = dataset$City, x = dataset$Number.of.male.victims.adult.)) +
+ geom_line()
+```
+
+# Line graph with points
+```{r}
+ggplot(dataset, aes(y = dataset$City, x = dataset$Number.of.male.victims.adult.)) +
+ geom_line() +
+  geom_point()
+```
+
+# Line graph with colour
+```{r}
+ggplot(dataset, aes(y = dataset$City, x = dataset$Number.of.male.victims.adult.)) +
+ geom_line(linetype = "dashed", size = 1, colour = "blue")
+```
+
+# graph with shaded area
+```{r}
+ggplot(dataset, aes(y = dataset$City, x = dataset$Number.of.male.victims.adult.)) +
+ geom_area()
+```
+
+# Making histogram
+```{r}
+ggplot(dataset, aes(x = dataset$Number.of.male.victims.adult.)) +
+ geom_histogram()
+```
+
+# Making histogram with facet
+```{r}
+ggplot(dataset, aes(x = dataset$Number.of.male.victims.adult.)) +
+ geom_histogram() +
+  facet_grid(City ~ .)
+```
+
+# Making density curve
+```{r}
+ggplot(dataset, aes(x = dataset$Number.of.male.victims.adult.)) +
+ geom_density()
+```
+
+# Making frequency plygon
+```{r}
+ggplot(dataset, aes(x = dataset$Number.of.male.victims.adult.)) +
+ geom_freqpoly()
+```
+
+# creating a violin plot
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+  geom_violin()
+```
+
+# creating a violin plot with box plot
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+  geom_violin() +
+  geom_boxplot(width = .1, fill = "black", outlier.colour = NA)
+```
+
+# creating a violin plot with smoothing
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+  geom_violin(adjust=2)
+```
+```{r}
+ggplot(dataset, aes(x = dataset$City, y = dataset$Number.of.male.victims.adult.)) +
+  geom_violin(adjust=.5)
+```
+
+# Making a dotplot
+```{r}
+ggplot(dataset, aes(x = dataset$Number.of.male.victims.adult.)) +
+ geom_dotplot()
+```
+
+# Making a dotplot with boxplot
+```{r}
+ggplot(dataset, aes(x = dataset$Number.of.male.victims.adult.)) +
+  geom_boxplot(outlier.colour = NA, width = .4) +
+ geom_dotplot()
+```
+
+Note: Some of commands were not working for our dataset
